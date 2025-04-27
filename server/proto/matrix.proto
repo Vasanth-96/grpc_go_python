@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package matrix;
+
+option go_package = "./;matrix";
+
+service MatrixService {
+    rpc MultiplyMatrices (MatrixRequest) returns (MatrixResponse);
+}
+
+message MatrixRequest {
+    int32 size = 1;  // Size of the matrix (500x500)
+}
+
+message MatrixResponse {
+    repeated int32 result = 1;  // Flattened matrix result after multiplication
+}
